@@ -4,6 +4,16 @@
 namespace Statistics {
 	class Stats
 	{
+    private:
+        std::vector<float> removeNanValues(const std::vector<float>& v){
+            std::vector<float> nonEmpty;
+            
+            for(int i=0; i<v.size(); i++){
+                if(std::isnan(v[i]) != 1)
+                    nonEmpty.push_back(v[i]);
+            }
+            return nonEmpty;
+        }
 	public:
 		float average;
 		float max;
@@ -11,20 +21,18 @@ namespace Statistics {
 		void ComputeAverage(const std::vector<float>& v)
 		{
 			if (v.empty())
+            {
 				average = NAN;
-			else {
-				float sum = 0.0;
-				int count = 0;
-				for (int i = 0; i < v.size(); i++)
-				{
-					if (std::isnan(v[i]) != 1)
-					{
-						sum += v[i];
-						count += 1;
-					}
-				}
-				average = sum / count;
-			}
+            }
+            std::vector<float> nonEmpty;
+            nonEmpty = removeNanValues(v);
+            float sum = 0.0;
+            for (int i = 0; i < nonEmpty.size(); i++)
+            {
+                sum += nonEmpty[i];
+            }
+            average = sum / nonEmpty.size();
+        
 
 		}
 		void ComputeMin(const std::vector<float>& v)
