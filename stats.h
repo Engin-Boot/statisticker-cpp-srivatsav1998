@@ -1,5 +1,12 @@
 #include <vector>
-
+#include <algorithm>
+#include <math.h>
 namespace Statistics {
-    Stats ComputeStatistics(const std::vector<___>& );
+	struct Stats {
+		float average = NAN;
+		float max = NAN;
+		float min = NAN;
+	};
+
+	Stats ComputeStatistics(const std::vector<float>& v);
 }
