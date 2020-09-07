@@ -6,11 +6,12 @@ This project uses the
 [catch framework](https://github.com/catchorg/Catch2/blob/master/docs/tutorial.md#top)
 to test functionality.
 
-## The task
+## Task
 
-The code is not complete and doesn't even compile.
-Have a look at the tests to know our intention.
-Design the return type accordingly.
-You need to design a test for an error condition as well.
+The task is to design a suitable return type to based on the tests designed
 
-Take care not to leave behind any compiler warnings in your solution.
+## Approach
+
+I have designed a struct named Stats which holds three floating variables,
+Average, min and max. I have designed custom functions to handle missing
+values and also for calculating average, max and min of the passed value.
